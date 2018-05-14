@@ -1,0 +1,10 @@
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\bin\Debug\renderXdemo.exe.config
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\bin\Debug\renderXdemo.exe
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\bin\Debug\renderXdemo.pdb
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.csprojResolveAssemblyReference.cache
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.displaySize.resources
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.Form1.resources
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.Properties.Resources.resources
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.csproj.GenerateResource.Cache
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.exe
+c:\users\adam\documents\visual studio 2013\Projects\renderXdemo\renderXdemo\obj\Debug\renderXdemo.pdb
