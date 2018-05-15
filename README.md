@@ -52,8 +52,8 @@ data.objXData[0].Rotation = new Vector3(0, 0, 0);               
 data.objXData[0].RotationOffset = new Vector3(0, 0, 0);
 ```
 ## Rendering The Objects To Screen:
-renderX output by default to a Bitmap
-```
+RenderX outputs to a bitmap.
+```c#
 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, lightPosition);
 ```
 
