@@ -22,7 +22,7 @@ renderX renderProcessor = new renderX(displayWidth, displayHeight, fov);
 ## Copying objectX data To Memory:
 renderX Also includes a importer which allows you to import 3D objects.
 ```c#
-objectX data = new objectX;
+objectX data = new objectX();
 objectXImport importer = new objectXImport();
 
 //Import The Data
