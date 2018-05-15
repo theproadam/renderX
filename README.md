@@ -18,6 +18,7 @@ This project was made after I wanted to make a 3D CAD program however I didn't w
 ```c#
   renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
   ```
+  It is also recommended to enable double buffering to prevent screen flicker!
 ## Copying objectX data To Memory:
 renderX Also includes a importer which allows you to import 3D objects.
 ```c#
@@ -40,3 +41,18 @@ object:"objectName":(0,0,0)(0,0,0)(25,25,25)//(XYZ Position)(Rotation)(RotationP
 //(X,Y,Z)(X,Y,Z)(X,Y,Z).(A,R,G,B); This is the face format
 ://Colon closes The Object
 ```
+## Editing Object Rotation Before Or During Runtime:
+Each Object Is Stored In A Array, Which is then sent into the render Program
+These Objects can be retrived from the objectX dataStore by using:
+```c#
+data.objXData[0].Name = "";                
+data.objXData[0].objectFaces = new Face3D[0];                
+data.objXData[0].Position = new Vector3(0, 0, 0);               
+data.objXData[0].Rotation = new Vector3(0, 0, 0);                
+data.objXData[0].RotationOffset = new Vector3(0, 0, 0);
+```
+
+## Known Bugs
+- Runs out of memory on 1080p
+- Z Buffer Incorrect
+- Camera 3D Pan isin't finished yet
