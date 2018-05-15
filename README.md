@@ -29,15 +29,15 @@ importer.Import(FilePath);
 data = importer.Analyse();
 ```
 # objX Files Are Simple:
-```c#
-object:"objectName":(0,0,0)(0,0,0)(25,25,25)//(XYZ Position)(Rotation)(RotationPoint)
-(0,0,0)(50,0,0)(50,0,50)(0,0,50).(255,255,0,0);//Each one of these lines represents a face
-(0,0,0)(50,0,0)(50,50,0)(0,50,0).(255,255,255,0);//Three or four Vector3 Allowed
-(0,0,0)(0,0,50)(0,50,50)(0,50,0).(255,0,255,0);//ARGB Color after the dor
-(50,0,0)(50,0,50)(50,50,50)(50,50,0).(255,0,0,255);
-(0,0,50)(50,0,50)(50,50,50)(0,50,50).(255,255,0,255);
-(0,50,0)(50,50,0)(50,50,50)(0,50,50).(255,215,215,215);
-//(X,Y,Z)(X,Y,Z)(X,Y,Z).(A,R,G,B); This is the face format
-://This Closes The Object
-```
+
+> object:"objectName":(0,0,0)(0,0,0)(25,25,25)//(XYZ Position)(Rotation)(RotationPoint)
+> (0,0,0)(50,0,0)(50,0,50)(0,0,50).(255,255,0,0);//Each one of these lines represents a face
+> (0,0,0)(50,0,0)(50,50,0)(0,50,0).(255,255,255,0);//Three or four Vector3 Allowed
+> (0,0,0)(0,0,50)(0,50,50)(0,50,0).(255,0,255,0);//ARGB Color after the dor
+> (50,0,0)(50,0,50)(50,50,50)(50,50,0).(255,0,0,255);
+> (0,0,50)(50,0,50)(50,50,50)(0,50,50).(255,255,0,255);
+> (0,50,0)(50,50,0)(50,50,50)(0,50,50).(255,215,215,215);
+> //(X,Y,Z)(X,Y,Z)(X,Y,Z).(A,R,G,B); This is the face format
+> ://This Closes The Object
+
 
