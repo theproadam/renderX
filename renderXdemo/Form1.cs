@@ -111,7 +111,9 @@ namespace renderXdemo
                 camPosi = camPosi + new Vector3(-deltax / 2, -deltay / 2, 0);
 
                 data.objXData[0].Rotation = camPosi;
+
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
+                
             }
 
             if (righdown){
@@ -139,9 +141,9 @@ namespace renderXdemo
             double cosY = Math.Cos(RADS.y); //0
 
 
-            float XAccel = (float)cosX * -deltaX;
+            float XAccel = (float)cosX * -deltaX + ((float)sinY * deltaY) * (float)sinX;
             float YAccel = (float)cosY * deltaY;
-            float ZAccel = (float)sinX * deltaX + ((float)sinY * deltaY);
+            float ZAccel = (float)sinX * deltaX + (((float)sinY * deltaY) * (float)cosX);
 
             I = I + new Vector3(XAccel, YAccel, ZAccel);
 
