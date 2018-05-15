@@ -1,8 +1,5 @@
 # renderX
-
-renderX: A 3D C# rendering API
-
-renderX is a non dependant c# Rendering API capable of 3d rendering without the use of openGL or directX.
+##### RenderX Is A Non Dependant C# Rendering API Capable of 3D Rendering Graphics Without The Use of OpenGL or DirectX.
 
 More Features Will Be Added Soon, such as: 
   - Raytracing
