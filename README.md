@@ -42,8 +42,8 @@ object:"objectName":(0,0,0)(0,0,0)(25,25,25)//(XYZ Position)(Rotation)(RotationP
 ://Colon closes The Object
 ```
 ## Editing Object Rotation Before Or During Runtime:
-Each Object Is Stored In A Array, Which is then sent into the render Program
-These Objects can be retrived from the objectX dataStore by using:
+Each object is stored in an array, Which is then sent into the render program
+These objects can be retrived from the objectX dataStore by using:
 ```c#
 data.objXData[0].Name = "";                
 data.objXData[0].objectFaces = new Face3D[0];                
@@ -51,8 +51,13 @@ data.objXData[0].Position = new Vector3(0, 0, 0);               
 data.objXData[0].Rotation = new Vector3(0, 0, 0);                
 data.objXData[0].RotationOffset = new Vector3(0, 0, 0);
 ```
+## Rendering The Objects To Screen:
+renderX output by default to a Bitmap
+```
+this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, lightPosition);
+```
 
-## Known Bugs
-- Runs out of memory on 1080p
+# Known Bugs
+- Runs out of memory fast on high resolutions
 - Z Buffer Incorrect
 - Camera 3D Pan isin't finished yet
