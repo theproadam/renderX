@@ -11,3 +11,11 @@ More Features Will Be Added Soon, such as:
   - Performance Fixes
 
 This project was made after I wanted to make a 3D CAD program however I didn't want to use any other API's.
+
+Usage:
+
+renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
+
+
+
+renderX Also includes a importer which allows you to import 3D objects.
