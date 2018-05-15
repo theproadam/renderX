@@ -16,8 +16,8 @@ This project was made after I wanted to make a 3D CAD program however I didn't w
 
 ## Initializing The Render Processor:
 ```c#
-  renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
-  ```
+renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
+```
   It is also recommended to enable double buffering to prevent screen flicker!
 ## Copying objectX data To Memory:
 renderX Also includes a importer which allows you to import 3D objects.
