@@ -14,8 +14,11 @@ This project was made after I wanted to make a 3D CAD program however I didn't w
 
 Usage:
 
+The renderProcessor is initialized
   renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
   
+  
+  objectX data = 
 
 
 renderX Also includes a importer which allows you to import 3D objects.
