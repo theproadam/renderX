@@ -12,17 +12,19 @@ More Features Will Be Added Soon, such as:
 
 This project was made after I wanted to make a 3D CAD program however I didn't want to use any other API's.
 
-#Usage:
+##Usage:
 
-Initializing The Render Processor:
-```
+#Initializing The Render Processor:
+```c#
   renderX renderProcessor = new renderX(displayWidth, displayHeight, fov); 
   ```
-Copying objectX data To Memory:
+#Copying objectX data To Memory:
+renderX Also includes a importer which allows you to import 3D objects.
 ```
 objectX data = new objectX;
 objectXImport importer = new objectXImport();
+
 importer.Import(FilePath);
 data = importer.Analyse();
 ```
-renderX Also includes a importer which allows you to import 3D objects.
+#objX Files Are Simple:
