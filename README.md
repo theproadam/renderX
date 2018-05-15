@@ -1,6 +1,6 @@
 # renderX
-[test](renderXdemo/betarot.gif)
-![alt text](renderXdemo/betarot.gif)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/6M8csf0"><a href="//imgur.com/6M8csf0"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 ##### RenderX Is A Non Dependant C# Rendering API Capable of 3D Rendering Graphics Without The Use of OpenGL or DirectX.
 
 More Features Will Be Added Soon, such as: 
