@@ -41,6 +41,7 @@ namespace renderXdemo
         }
 
         public Bitmap ProcessData(Vector3 camPos, Vector3 camRot, objectX objectXData, Vector3 lightPosition, bool reBake = false){
+            GC.Collect();
             Bitmap bmp = new Bitmap(BitmapWidth, BitmapHeight);
             objX[] TransformedObjects = new objX[objectXData.objXData.Length];
             List<Face3D> TransformedFaces = new List<Face3D>();
