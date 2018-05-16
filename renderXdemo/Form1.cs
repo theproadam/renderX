@@ -85,6 +85,9 @@ namespace renderXdemo
         Vector3 camPosition = new Vector3(0, 0, -155);
         Vector3 camRotation = new Vector3(0, 0, 0);
 
+        Vector2 Keydelta = new Vector2(0, 0);
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             float deltax = oldMouseX - this.PointToClient(Cursor.Position).X;
@@ -93,15 +96,33 @@ namespace renderXdemo
             oldMouseX = this.PointToClient(Cursor.Position).X;
             oldMouseY = this.PointToClient(Cursor.Position).Y;
 
-            if (rdown)
-            {
-                deltax = deltax * 2;
+            if (rdown | ldown){
+                if (rdown){
+                    Keydelta.x--;
+                }else if (ldown)
+                {
+                    Keydelta.x++;
+                }
+            }else{
+                Keydelta.x = 0;
             }
 
-            if (ldown)
+            if (udown | bdown)
             {
-                deltax = deltax * -2f;
+                if (udown)
+                {
+                    Keydelta.y--;
+                }
+                else if (bdown)
+                {
+                    Keydelta.y++;
+                }
             }
+            else
+            {
+                Keydelta.y = 0;
+            }
+
             //TODO: FINISH
 
 
@@ -124,6 +145,7 @@ namespace renderXdemo
             if (righdown){
                 
                 camRotation = camRotation + new Vector3(0, -deltay / 8, -deltax / 8);
+                camPosition = Pan3D(camPosition, camRotation, Keydelta.x / 8f, 0, Keydelta.y / 8f);
 
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
                 
@@ -131,27 +153,29 @@ namespace renderXdemo
             }
             
             this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
-            
+         //   this.Text = "camPos: X:" + Keydelta.x.ToString() + "Y: 0"; 
+
         }
 
-        Vector3 Pan3D(Vector3 Input, Vector3 Rotation, float deltaX, float deltaY)
+        Vector3 Pan3D(Vector3 Input, Vector3 Rotation, float deltaX, float deltaY, float deltaZ = 0)
         {
             Vector3 I = new Vector3(Input);
             Vector3 RADS = new Vector3(0f, Rotation.y / 57.2958f, Rotation.z / 57.2958f);
 
-            double sinX = Math.Sin(RADS.z); //0
-            double sinY = Math.Sin(RADS.y); //0
+            float sinX = (float)Math.Sin(RADS.z); //0
+            float sinY = (float)Math.Sin(RADS.y); //0
+            
 
-            double cosX = Math.Cos(RADS.z); //0
-            double cosY = Math.Cos(RADS.y); //0
+            float cosX = (float)Math.Cos(RADS.z); //0
+            float cosY = (float)Math.Cos(RADS.y); //0
 
             
             
 
 
-            float XAccel = (float)cosX * -deltaX + ((float)sinY * deltaY) * (float)sinX;
-            float YAccel = (float)cosY * deltaY;
-            float ZAccel = (float)sinX * deltaX + (((float)sinY * deltaY) * (float)cosX);
+            float XAccel = (cosX * -deltaX + (sinY * deltaY) * sinX) + (sinX * -deltaZ);
+            float YAccel = (cosY * deltaY) + (sinY * deltaZ);
+            float ZAccel = (sinX * deltaX + (sinY * deltaY) * cosX) + (cosX * -deltaZ);
 
             I = I + new Vector3(XAccel, YAccel, ZAccel);
 
@@ -191,22 +215,22 @@ namespace renderXdemo
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D)
             {
                 rdown = true;
             }
 
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 ldown = true;
             }
 
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.W)
             {
                 udown = true;
             }
 
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.S)
             {
                 bdown = true;
             }
@@ -215,25 +239,25 @@ namespace renderXdemo
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D)
             {
                 rdown = false;
             }
 
             ldown = false;
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 ldown = false;
             }
 
             udown = false;
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.W)
             {
                 udown = false;
             }
 
             bdown = false;
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.S)
             {
                 bdown = false;
             }
