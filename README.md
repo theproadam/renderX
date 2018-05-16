@@ -1,5 +1,5 @@
 # renderX
-##### RenderX Is A Non Dependant C# Rendering API Capable of 3D Rendering Graphics Without The Use of OpenGL or DirectX.
+##### RenderX Is A Non Dependent C# Rendering API Capable of 3D Rendering Graphics Without The Use of OpenGL or DirectX.
 
 More Features Will Be Added Soon, such as: 
   - Raytracing
@@ -57,7 +57,6 @@ this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, dat
 # Known Bugs
 - Runs out of memory fast on high resolutions
 - Z Buffer Incorrect
-- Camera 3D Pan isin't finished yet
 
 ### Beta Preview:
 ![gif](https://media.giphy.com/media/1lCEkck3zq7Mmgfkji/giphy.gif)
