@@ -57,7 +57,6 @@ this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, dat
 # Known Bugs
 - Runs out of memory fast on high resolutions
 - Z Buffer Incorrect
-- Camera 3D Pan isin't finished yet
 
 ### Beta Preview:
 ![gif](https://media.giphy.com/media/1lCEkck3zq7Mmgfkji/giphy.gif)
