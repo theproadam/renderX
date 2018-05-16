@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -89,20 +90,24 @@ namespace renderXdemo
             float deltax = oldMouseX - this.PointToClient(Cursor.Position).X;
             float deltay = oldMouseY - this.PointToClient(Cursor.Position).Y;
 
-         //   this.Text = "deltaX: " + deltax + ", deltaY: " + deltay;
-
             oldMouseX = this.PointToClient(Cursor.Position).X;
             oldMouseY = this.PointToClient(Cursor.Position).Y;
 
+            if (rdown)
+            {
+                deltax = deltax * 2;
+            }
 
+            if (ldown)
+            {
+                deltax = deltax * -2f;
+            }
+            //TODO: FINISH
 
 
             if (mmbdown){
-               // camPosition = camPosition + new Vector3(deltax / 2, -deltay / 2, 0);
-
-                camPosition = Pan3D(camPosition, camRotation, -deltax / 2, -deltay / 2);
-
                 
+                camPosition = Pan3D(camPosition, camRotation, -deltax / 2, -deltay / 2);
 
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
             }
@@ -117,15 +122,15 @@ namespace renderXdemo
             }
 
             if (righdown){
+                
                 camRotation = camRotation + new Vector3(0, -deltay / 8, -deltax / 8);
+
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
+                
 
             }
-
+            
             this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
-
-         //   Debug.WriteLine("CamPos: " + camPosition.ToString());
-          //  Debug.WriteLine("CamROT: " + camRotation.ToString());
             
         }
 
@@ -139,6 +144,9 @@ namespace renderXdemo
 
             double cosX = Math.Cos(RADS.z); //0
             double cosY = Math.Cos(RADS.y); //0
+
+            
+            
 
 
             float XAccel = (float)cosX * -deltaX + ((float)sinY * deltaY) * (float)sinX;
@@ -154,6 +162,11 @@ namespace renderXdemo
         bool mousedown = false;
         bool mmbdown = false;
         bool righdown = false;
+
+        bool rdown = false;
+        bool ldown = false;
+        bool udown = false;
+        bool bdown = false;
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -175,6 +188,57 @@ namespace renderXdemo
                 righdown = true;
             }
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                rdown = true;
+            }
+
+            if (e.KeyCode == Keys.Left)
+            {
+                ldown = true;
+            }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                udown = true;
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                bdown = true;
+            }
+
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                rdown = false;
+            }
+
+            ldown = false;
+            if (e.KeyCode == Keys.Left)
+            {
+                ldown = false;
+            }
+
+            udown = false;
+            if (e.KeyCode == Keys.Up)
+            {
+                udown = false;
+            }
+
+            bdown = false;
+            if (e.KeyCode == Keys.Down)
+            {
+                bdown = false;
+            }
+        }
+
 
 
     }
