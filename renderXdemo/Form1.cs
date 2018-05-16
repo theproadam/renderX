@@ -71,6 +71,11 @@ namespace renderXdemo
                     data = importer.Analyse();
 
                 }
+                else
+                {
+                    Application.Exit();
+                    
+                }
 
             
                 renderProcessor = new renderX(displayWidth, displayHeight, 1); 
@@ -98,9 +103,13 @@ namespace renderXdemo
 
             if (rdown | ldown){
                 if (rdown){
+                    if (Keydelta.x > 0){ 
+                        Keydelta.x = 0;}
                     Keydelta.x--;
                 }else if (ldown)
                 {
+                    if (Keydelta.x < 0){
+                        Keydelta.x = 0;}
                     Keydelta.x++;
                 }
             }else{
@@ -111,10 +120,14 @@ namespace renderXdemo
             {
                 if (udown)
                 {
+                    if (Keydelta.y > 0){
+                        Keydelta.y = 0;}
                     Keydelta.y--;
                 }
                 else if (bdown)
                 {
+                    if (Keydelta.y < 0){
+                        Keydelta.y = 0;}
                     Keydelta.y++;
                 }
             }
@@ -152,8 +165,9 @@ namespace renderXdemo
 
             }
             
-            this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
+          //  this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
          //   this.Text = "camPos: X:" + Keydelta.x.ToString() + "Y: 0"; 
+            this.Text = "rdown: " + rdown.ToString() + ", ldown: " + ldown.ToString() + ", udown: " + udown.ToString() + ", bdown: " + bdown.ToString();
 
         }
 
@@ -235,6 +249,7 @@ namespace renderXdemo
                 bdown = true;
             }
 
+            
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -244,26 +259,23 @@ namespace renderXdemo
                 rdown = false;
             }
 
-            ldown = false;
             if (e.KeyCode == Keys.A)
             {
                 ldown = false;
             }
 
-            udown = false;
             if (e.KeyCode == Keys.W)
             {
                 udown = false;
             }
 
-            bdown = false;
             if (e.KeyCode == Keys.S)
             {
                 bdown = false;
             }
         }
 
-
+        
 
     }
 }
