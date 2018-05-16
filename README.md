@@ -5,7 +5,7 @@ More Features Will Be Added Soon, such as:
   - Raytracing
   - Shadows
   - Textures
-  - Performance Fixes
+  - Performance Improvements
 
 This project was made after I wanted to make a 3D CAD program however I didn't want to use any other API's.
 
@@ -55,7 +55,6 @@ this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, dat
 ```
 
 # Known Bugs
-- Runs out of memory fast on high resolutions
 - Z Buffer Incorrect
 
 ### Beta Preview:
