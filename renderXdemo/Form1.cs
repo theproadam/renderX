@@ -165,9 +165,9 @@ namespace renderXdemo
 
             }
             
-          //  this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
+            this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
          //   this.Text = "camPos: X:" + Keydelta.x.ToString() + "Y: 0"; 
-            this.Text = "rdown: " + rdown.ToString() + ", ldown: " + ldown.ToString() + ", udown: " + udown.ToString() + ", bdown: " + bdown.ToString();
+         //   this.Text = "rdown: " + rdown.ToString() + ", ldown: " + ldown.ToString() + ", udown: " + udown.ToString() + ", bdown: " + bdown.ToString();
 
         }
 
@@ -187,9 +187,9 @@ namespace renderXdemo
             
 
 
-            float XAccel = (cosX * -deltaX + (sinY * deltaY) * sinX) + (sinX * -deltaZ);
+            float XAccel = (cosX * -deltaX + (sinY * deltaY) * sinX) + (sinX * -deltaZ) * cosY;
             float YAccel = (cosY * deltaY) + (sinY * deltaZ);
-            float ZAccel = (sinX * deltaX + (sinY * deltaY) * cosX) + (cosX * -deltaZ);
+            float ZAccel = (sinX * deltaX + (sinY * deltaY) * cosX) + (cosX * -deltaZ) * cosY;
 
             I = I + new Vector3(XAccel, YAccel, ZAccel);
 
