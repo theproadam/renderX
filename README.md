@@ -42,10 +42,10 @@ object:"objectName":(0,0,0)(0,0,0)(25,25,25)//(XYZ Position)(Rotation)(RotationP
 Each object is stored in an array, Which is then sent into the render program
 These objects can be retrived from the objectX dataStore by using:
 ```c#
-data.objXData[0].Name = "";                
-data.objXData[0].objectFaces = new Face3D[0];                
-data.objXData[0].Position = new Vector3(0, 0, 0);               
-data.objXData[0].Rotation = new Vector3(0, 0, 0);                
+data.objXData[0].Name = "";
+data.objXData[0].objectFaces = new Face3D[0];
+data.objXData[0].Position = new Vector3(0, 0, 0);
+data.objXData[0].Rotation = new Vector3(0, 0, 0);
 data.objXData[0].RotationOffset = new Vector3(0, 0, 0);
 ```
 ## Rendering The Objects To Screen:
