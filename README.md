@@ -56,7 +56,8 @@ this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, dat
 
 # Known Bugs
 - Z Buffer Incorrect
-- Face behind camera needs fixing
+- Face behind camera needs fixing (Know how to fix)
+- Bad performance with multiple faces (Know how to fix)
 
 ### Beta Preview:
 ![gif](https://media.giphy.com/media/1lCEkck3zq7Mmgfkji/giphy.gif)
