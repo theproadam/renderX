@@ -61,4 +61,4 @@ this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, dat
 
 ### Beta Preview:
 ![gif](https://media.giphy.com/media/1lCEkck3zq7Mmgfkji/giphy.gif)
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/SS-VDp_DxnY/0.jpg)](http://www.youtube.com/watch?v=SS-VDp_DxnY "Video Title")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/e62gkj7mKV8/0.jpg)](http://www.youtube.com/watch?v=e62gkj7mKV8 "Video Title")
