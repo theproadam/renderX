@@ -14,17 +14,17 @@ namespace renderXdemo
     {
         int BitmapWidth;
         int BitmapHeight;
-        int FOV;
+        float FOV;
 
         float AspectRatio;
 
        
         Bitmap bmp;
 
-        public renderX(int Width, int Height, int FieldOfView){
+        public renderX(int Width, int Height, float FieldOfViewInRadians){
             BitmapWidth = Width;
             BitmapHeight = Height;
-            FOV = FieldOfView;
+            FOV = FieldOfViewInRadians;
             AspectRatio = (float)BitmapWidth / (float)BitmapHeight;
 
             bmp = new Bitmap(BitmapWidth, BitmapHeight);
@@ -45,7 +45,9 @@ namespace renderXdemo
             Bitmap bmp = new Bitmap(BitmapWidth, BitmapHeight);
             objX[] TransformedObjects = new objX[objectXData.objXData.Length];
             List<Face3D> TransformedFaces = new List<Face3D>();
-           
+            Stopwatch sww = new Stopwatch();
+            sww.Start();
+
             foreach (objX xData in objectXData.objXData){
 
                 int i = 0;
@@ -73,8 +75,15 @@ namespace renderXdemo
 
             }
 
+            
+
             TransformedFaces = SortList(TransformedFaces, camPos); //Faces Sorted From Futherst To Closest
 
+            sww.Stop();
+            Console.WriteLine(sww.ElapsedMilliseconds.ToString() + "ms to process Faces");
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             foreach (Face3D fData in TransformedFaces)
             {
                 Vector2[] outputPositions = new Vector2[fData.FourCoords.Length];
@@ -90,6 +99,9 @@ namespace renderXdemo
                 DrawFace(outputPositions, fData.col, bmp, false);
 
             }
+            sw.Stop();
+
+            Console.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms to render Faces");
 
            // RayCast(new Vector3(0, 0, 0), new Vector3(25, 25, 25), objectXData);
 
@@ -205,7 +217,7 @@ namespace renderXdemo
             return new Vector3(0, 0, 0);
         }
 
-        bool XYZtoXY(Vector3 XYZ, Vector3 camPos, int CameraFOV, out Vector2 XY, float resolutionOffset)
+        bool XYZtoXY(Vector3 XYZ, Vector3 camPos, float CameraFOV, out Vector2 XY, float resolutionOffset)
         {
             float PreCalculatedZ = XYZ.z - camPos.z; // Calculate The Z Offset Once Instead Of Multiple Times To Increase Performance. 
             if (PreCalculatedZ <= 0){ //Checks For Whether The 3 Dimensional Point Is Infront Of The Camera This Saves About 60 CPU clock cycles

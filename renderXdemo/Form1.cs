@@ -77,8 +77,10 @@ namespace renderXdemo
                     
                 }
 
-            
-                renderProcessor = new renderX(displayWidth, displayHeight, 1); 
+
+                renderProcessor = new renderX(displayWidth, displayHeight, 1f); //1.5708Rads = 90Deg
+                
+
                 timer1.Start();
             }
                 
@@ -94,7 +96,7 @@ namespace renderXdemo
 
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
+        {   
             float deltax = oldMouseX - this.PointToClient(Cursor.Position).X;
             float deltay = oldMouseY - this.PointToClient(Cursor.Position).Y;
 
@@ -154,17 +156,22 @@ namespace renderXdemo
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
                 
             }
+            Stopwatch sw = new Stopwatch();
 
             if (righdown){
                 
+                
                 camRotation = camRotation + new Vector3(0, -deltay / 8, -deltax / 8);
                 camPosition = Pan3D(camPosition, camRotation, Keydelta.x / 8f, 0, Keydelta.y / 8f);
+                sw.Start();
 
                 this.BackgroundImage = renderProcessor.ProcessData(camPosition, camRotation, data, new Vector3(0, 0, 0));
-                
+
+                sw.Stop();
+                Console.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms to display image");
 
             }
-            
+
             this.Text = "camPos: " + camPosition.ToString() + ", camRot: " + camRotation.ToString();
          //   this.Text = "camPos: X:" + Keydelta.x.ToString() + "Y: 0"; 
          //   this.Text = "rdown: " + rdown.ToString() + ", ldown: " + ldown.ToString() + ", udown: " + udown.ToString() + ", bdown: " + bdown.ToString();
