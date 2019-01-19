@@ -9,6 +9,9 @@ More Features Will Be Added Soon, such as:
 
 This project was made after I wanted to make a 3D CAD program however I didn't want to use any other API's.
 
+##### A new update is coming with working a Z-Buffer, Polygon clipping, and culling!
+
+
 # Usage:
 
 ## Initializing The Render Processor:
