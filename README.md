@@ -1,3 +1,6 @@
+###### renderX is considered deprecated and has been replaced with [renderXF](https://github.com/theproadam/renderXF)
+___
+
 # renderX
 ##### RenderX Is A Non Dependent C# Rendering API Capable of 3D Rendering Graphics Without The Use of OpenGL or DirectX.
 
